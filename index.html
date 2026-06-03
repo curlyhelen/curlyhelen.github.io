@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Личное сопровождение | Elena Masterskikh</title>
+<meta name="description" content="Личное сопровождение на 1 месяц. Новая система, которая даёт энергию. Для женщин, которые хотят почувствовать себя живыми снова.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #FAF7F2;
+    color: #2C2C2C;
+    line-height: 1.7;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 680px; margin: 0 auto; padding: 0 28px; }
+
+  /* Lang switcher */
+  .lang-switch {
+    position: fixed; top: 24px; right: 24px;
+    background: rgba(255,255,255,0.9); backdrop-filter: blur(10px);
+    padding: 8px 14px; border-radius: 30px;
+    display: flex; gap: 12px; font-size: 13px; z-index: 100;
+    border: 1px solid #E8DCC9;
+  }
+  .lang-switch button {
+    background: none; border: none; cursor: pointer;
+    font-family: inherit; font-size: 13px; color: #999;
+    padding: 4px 8px; border-radius: 20px;
+    transition: all 0.2s;
+  }
+  .lang-switch button.active { color: #2C2C2C; font-weight: 500; background: #FAF7F2; }
+
+  /* Hero */
+  .hero { padding: 140px 0 80px; text-align: center; }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px; font-weight: 500; line-height: 1.15;
+    margin-bottom: 24px; letter-spacing: -0.5px;
+  }
+  .hero .subtitle {
+    font-size: 18px; color: #555;
+    max-width: 480px; margin: 0 auto 16px;
+  }
+  .hero .small {
+    font-size: 14px; color: #888;
+    font-style: italic;
+  }
+
+  /* Section */
+  section { padding: 60px 0; }
+  section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px; font-weight: 500;
+    margin-bottom: 32px; text-align: center;
+    letter-spacing: -0.3px;
+  }
+
+  /* About */
+  .about p { margin-bottom: 16px; font-size: 16px; color: #444; }
+  .about .signature {
+    font-style: italic; color: #888;
+    text-align: center; margin-top: 24px;
+    font-size: 15px;
+  }
+
+  /* Checklist */
+  .checklist { list-style: none; }
+  .checklist li {
+    padding: 14px 0 14px 32px;
+    position: relative;
+    border-bottom: 1px solid #E8DCC9;
+    font-size: 16px; color: #444;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before {
+    content: '✓';
+    position: absolute; left: 0; top: 14px;
+    color: #D4A574; font-weight: 500;
+  }
+
+  /* What we do */
+  .services { list-style: none; }
+  .services li {
+    padding: 20px 0;
+    border-bottom: 1px solid #E8DCC9;
+  }
+  .services li:last-child { border-bottom: none; }
+  .services .service-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px; color: #2C2C2C; margin-bottom: 6px;
+    font-weight: 500;
+  }
+  .services .service-desc { color: #666; font-size: 15px; }
+
+  /* Format */
+  .format {
+    background: #FFFFFF; padding: 40px 32px; border-radius: 4px;
+    border: 1px solid #E8DCC9;
+  }
+  .format-item {
+    display: flex; gap: 16px; align-items: flex-start;
+    padding: 14px 0;
+  }
+  .format-item .icon { font-size: 22px; flex-shrink: 0; }
+  .format-item .text { font-size: 15px; color: #444; }
+
+  /* Price */
+  .price-box {
+    text-align: center; padding: 50px 32px;
+    background: #FFFFFF; border-radius: 4px;
+    border: 1px solid #E8DCC9;
+  }
+  .price-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px; color: #2C2C2C; font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .price-label { color: #888; font-size: 14px; margin-bottom: 24px; }
+  .price-divider {
+    height: 1px; background: #E8DCC9;
+    width: 60px; margin: 24px auto;
+  }
+  .price-secondary {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px; color: #555; font-weight: 500;
+  }
+  .price-secondary span {
+    display: block; font-family: 'Inter', sans-serif;
+    font-size: 13px; color: #D4A574;
+    margin-top: 4px; font-weight: 400;
+  }
+  .price-note {
+    margin-top: 24px; font-size: 13px;
+    color: #999; font-style: italic;
+  }
+
+  /* Steps */
+  .steps { counter-reset: step; }
+  .steps .step {
+    display: flex; gap: 20px; padding: 16px 0;
+    border-bottom: 1px solid #E8DCC9;
+  }
+  .steps .step:last-child { border-bottom: none; }
+  .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; color: #D4A574;
+    flex-shrink: 0; width: 30px; font-weight: 500;
+  }
+  .step-text { font-size: 16px; color: #444; padding-top: 8px; }
+
+  /* CTA */
+  .cta { text-align: center; padding: 40px 0; }
+  .cta a {
+    display: inline-block;
+    background: #2C2C2C; color: #FAF7F2;
+    padding: 16px 40px; border-radius: 2px;
+    text-decoration: none; font-size: 14px;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    transition: all 0.3s; font-weight: 500;
+  }
+  .cta a:hover { background: #D4A574; }
+
+  /* Disclaimer */
+  .disclaimer {
+    background: #F5EFE6; padding: 32px;
+    border-radius: 4px; font-size: 13px;
+    color: #888; line-height: 1.7;
+  }
+  .disclaimer h3 {
+    font-size: 13px; font-weight: 500;
+    color: #2C2C2C; margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .disclaimer p { margin-bottom: 10px; }
+
+  /* Footer */
+  footer {
+    text-align: center; padding: 60px 0 40px;
+    color: #999; font-size: 13px;
+    border-top: 1px solid #E8DCC9; margin-top: 40px;
+  }
+  footer a { color: #2C2C2C; text-decoration: none; margin: 0 8px; }
+
+  /* Lang content visibility */
+  .lang-en { display: none; }
+  body.en .lang-ru { display: none; }
+  body.en .lang-en { display: block; }
+
+  @media (max-width: 600px) {
+    .hero { padding: 120px 0 60px; }
+    .hero h1 { font-size: 34px; }
+    section h2 { font-size: 26px; }
+    .price-main { font-size: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="lang-switch">
+  <button id="ru-btn" class="active" onclick="setLang('ru')">RU</button>
+  <button id="en-btn" onclick="setLang('en')">EN</button>
+</div>
+
+<!-- ============ RU VERSION ============ -->
+<div class="lang-ru">
+
+<div class="hero">
+  <div class="container">
+    <h1>Личное сопровождение<br>на 1 месяц</h1>
+    <p class="subtitle">Новая система, которая даёт тебе энергию.<br>Через тело, питание и осознанные привычки.</p>
+    <p class="small">Для женщин, которые хотят почувствовать себя живыми снова.</p>
+  </div>
+</div>
+
+<section class="about">
+  <div class="container">
+    <h2>Кто я</h2>
+    <p>Меня зовут Елена.</p>
+    <p>Я не диетолог, не тренер, не психолог.</p>
+    <p>Я — женщина, которая 13 лет живёт без мяса, 18 месяцев занимается художественной гимнастикой во взрослом возрасте, и каждый день строит энергию через рутины, движение и осознанный выбор.</p>
+    <p class="signature">Я делюсь тем, что прожила сама.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Это для тебя, если</h2>
+    <ul class="checklist">
+      <li>Ты хочешь почувствовать себя живой — не уставшей версией себя</li>
+      <li>Тебе не хватает энергии, и ты ищешь, что её даёт по-настоящему</li>
+      <li>Ты хочешь настроить питание — не сидеть на диете</li>
+      <li>Ты хочешь вернуться к движению, но не знаешь как</li>
+      <li>Тебе нужна структура, рутина, поддержка в построении новой жизни</li>
+      <li>Ты ценишь честность, дисциплину с любовью и реальные изменения</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Что мы сделаем вместе</h2>
+    <ul class="services">
+      <li>
+        <div class="service-title">Личный разбор</div>
+        <div class="service-desc">Где ты сейчас, что хочешь, что мешает</div>
+      </li>
+      <li>
+        <div class="service-title">Утренняя рутина под твою жизнь</div>
+        <div class="service-desc">Та, которая даёт энергию именно тебе</div>
+      </li>
+      <li>
+        <div class="service-title">Отношения с едой</div>
+        <div class="service-desc">Найдём, что тебя заряжает, что забирает энергию. Без диет, без жёстких правил, без подсчёта калорий. Принципы, а не протоколы.</div>
+      </li>
+      <li>
+        <div class="service-title">Движение в твоей жизни</div>
+        <div class="service-desc">Мягко, под твой ритм</div>
+      </li>
+      <li>
+        <div class="service-title">Инструменты на всю жизнь</div>
+        <div class="service-desc">То, что останется с тобой навсегда</div>
+      </li>
+    </ul>
+    <p class="signature" style="margin-top: 32px;">Это не диета. Не план тренировок. Не работа с психологом.<br>Это путь, который мы пройдём вместе.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Как мы работаем</h2>
+    <div class="format">
+      <div class="format-item">
+        <div class="icon">📅</div>
+        <div class="text"><strong>4 онлайн-созвона</strong> — 1 час каждый, по 1 в неделю</div>
+      </div>
+      <div class="format-item">
+        <div class="icon">💬</div>
+        <div class="text"><strong>Поддержка в чате</strong> — будни 9:00–18:00, ответ в течение 24 часов</div>
+      </div>
+      <div class="format-item">
+        <div class="icon">🎯</div>
+        <div class="text"><strong>Личный план</strong> — с практиками и рутинами</div>
+      </div>
+      <div class="format-item">
+        <div class="icon">🤝</div>
+        <div class="text"><strong>Сопровождение</strong> — я рядом весь месяц</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Инвестиция</h2>
+    <div class="price-box">
+      <div class="price-main">400 €</div>
+      <div class="price-label">1 месяц</div>
+      <div class="price-divider"></div>
+      <div class="price-secondary">700 € <span>2 месяца · экономия 100 €</span></div>
+      <p class="price-note">Оплата перед стартом работы.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Как начать</h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-text">Напиши мне в Instagram или на почту</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">Я отвечу в течение 24 часов</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">Созваниваемся на 20-30 минут — бесплатное знакомство</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">Решаем, подходим ли друг другу</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text">Если да — стартуем</div></div>
+    </div>
+    <div class="cta">
+      <a href="mailto:elenamasterskikh2511@gmail.com?subject=Личное%20сопровождение">Написать мне</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="disclaimer">
+      <h3>Важно — рамки моей работы</h3>
+      <p>Я не являюсь сертифицированным нутрициологом, диетологом, тренером, психологом, терапевтом или врачом.</p>
+      <p>Я не составляю индивидуальные меню, не назначаю витамины и добавки, не лечу заболевания.</p>
+      <p>Моё сопровождение — это менторство через личный опыт. Я делюсь принципами, а не протоколами.</p>
+      <p>Для медицинских вопросов, конкретных диет, клинической нутрициологии или работы с расстройствами пищевого поведения, депрессией, тревожными расстройствами обращайся к соответствующим специалистам.</p>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- ============ EN VERSION ============ -->
+<div class="lang-en">
+
+<div class="hero">
+  <div class="container">
+    <h1>1-Month Personal<br>Mentorship</h1>
+    <p class="subtitle">A new system that gives you energy.<br>Through body, food, and conscious habits.</p>
+    <p class="small">For women who want to feel alive again.</p>
+  </div>
+</div>
+
+<section class="about">
+  <div class="container">
+    <h2>Who I Am</h2>
+    <p>I'm Elena.</p>
+    <p>I'm not a dietitian, trainer, or therapist.</p>
+    <p>I'm a woman who has been plant-based for 13 years, who started rhythmic gymnastics as an adult 18 months ago, and who builds energy every day through rituals, movement, and conscious choices.</p>
+    <p class="signature">I share what I've lived.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>This is for you if</h2>
+    <ul class="checklist">
+      <li>You want to feel alive again — not the tired version of yourself</li>
+      <li>You're low on energy and looking for what really creates it</li>
+      <li>You want to align your eating — not start another diet</li>
+      <li>You want to return to movement but don't know how</li>
+      <li>You need structure, rituals, support to build a new life</li>
+      <li>You value honesty, discipline with love, and real change</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>What we'll do together</h2>
+    <ul class="services">
+      <li>
+        <div class="service-title">Personal assessment</div>
+        <div class="service-desc">Where you are, what you want, what's stopping you</div>
+      </li>
+      <li>
+        <div class="service-title">A morning ritual for your life</div>
+        <div class="service-desc">The one that gives YOU energy</div>
+      </li>
+      <li>
+        <div class="service-title">Your relationship with food</div>
+        <div class="service-desc">Find what fuels you, notice what drains you. No diets, no rigid rules, no calorie counting. Principles, not protocols.</div>
+      </li>
+      <li>
+        <div class="service-title">Movement in your life</div>
+        <div class="service-desc">Gently, at your rhythm</div>
+      </li>
+      <li>
+        <div class="service-title">Tools that stay forever</div>
+        <div class="service-desc">What you'll carry with you for years</div>
+      </li>
+    </ul>
+    <p class="signature" style="margin-top: 32px;">This isn't a diet. It isn't a training plan. It isn't therapy.<br>This is a journey we walk together.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>How we work</h2>
+    <div class="format">
+      <div class="format-item">
+        <div class="icon">📅</div>
+        <div class="text"><strong>4 online calls</strong> — 1 hour each, weekly</div>
+      </div>
+      <div class="format-item">
+        <div class="icon">💬</div>
+        <div class="text"><strong>Chat support</strong> — weekdays 9 AM–6 PM, response within 24 hours</div>
+      </div>
+      <div class="format-item">
+        <div class="icon">🎯</div>
+        <div class="text"><strong>Personalized plan</strong> — with practices and rituals</div>
+      </div>
+      <div class="format-item">
+        <div class="icon">🤝</div>
+        <div class="text"><strong>Real accompaniment</strong> — I'm with you for the full month</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Investment</h2>
+    <div class="price-box">
+      <div class="price-main">€400</div>
+      <div class="price-label">1 month</div>
+      <div class="price-divider"></div>
+      <div class="price-secondary">€700 <span>2 months · save €100</span></div>
+      <p class="price-note">Payment before we start.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>How to start</h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-text">Write to me on Instagram or by email</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">I respond within 24 hours</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">We schedule a free 20-30 minute call</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">We see if we're a fit</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-text">If yes — we begin</div></div>
+    </div>
+    <div class="cta">
+      <a href="mailto:elenamasterskikh2511@gmail.com?subject=Personal%20Mentorship">Write to me</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="disclaimer">
+      <h3>Important — Scope of My Work</h3>
+      <p>I am not a certified nutritionist, dietitian, trainer, psychologist, therapist, or doctor.</p>
+      <p>I do not create personalized meal plans, prescribe supplements, or treat conditions.</p>
+      <p>My mentorship is based on personal experience. I share principles, not protocols.</p>
+      <p>For medical questions, specific diets, clinical nutrition, or work with eating disorders, depression, anxiety disorders — please consult appropriate specialists.</p>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <div class="container">
+    <a href="https://instagram.com/curlyhelen" target="_blank">Instagram</a> ·
+    <a href="mailto:elenamasterskikh2511@gmail.com">Email</a>
+    <p style="margin-top: 16px;">© Elena Masterskikh · 2026</p>
+  </div>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.body.classList.toggle('en', lang === 'en');
+    document.getElementById('ru-btn').classList.toggle('active', lang === 'ru');
+    document.getElementById('en-btn').classList.toggle('active', lang === 'en');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
